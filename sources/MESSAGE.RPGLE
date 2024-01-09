@@ -49,3 +49,34 @@ DCL-PR SndPgmMsg ExtPgm('QMHSNDPM');
   errorForAPI   like(ApiError);
 END-PR; 
 
+// --------------------------------------------------
+// Procedure name: timestampMessageDiagnostic
+// Purpose:        Récupére le timestamp du message id demandé
+// Returns:        Timestamp du message
+// Parameter:      messageSav => Message de diagnostique interrogé
+// --------------------------------------------------
+
+// Proécédure de récupération du dernier message de diagnostique du travail
+Dcl-Proc timestampMessageDiagnostic export;
+  Dcl-Pi *N timestamp;
+    messageRecherche LIKEDS(Message) Const;
+  End-Pi;
+
+  // Local fields
+
+  Dcl-s timestampMessage timestamp;
+
+  Exec sql
+      SELECT a.message_timestamp
+        Into :timestampMessage
+        FROM TABLE (
+            qsys2.joblog_info('*')
+                   ) a
+       Where a.Message_Id = :messageRecherche.id
+    ORDER BY a.message_timestamp DESC
+       Limit 1;
+
+    SQLErreur(Sqlca);
+
+    Return timestampMessage;
+End-Proc;       
