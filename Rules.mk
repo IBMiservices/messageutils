@@ -1,1 +1,1 @@
-SUBDIRS = MessagesCore/sources
+SUBDIRS = core

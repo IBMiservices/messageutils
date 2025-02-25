@@ -5,7 +5,8 @@
   "repository": "https://github.com/IBMiservices/messageutils.git",
   "includePath": [
     "dep/APIIBMi/Sources",
-    "MessagesCore/sourcesref"
+    "core",
+    "ref"
   ],
   "objlib": "*CURLIB",
   "curlib": "&CURLIB",
