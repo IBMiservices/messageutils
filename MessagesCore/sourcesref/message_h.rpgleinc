@@ -1,6 +1,6 @@
 ﻿**FREE
 // DS returned by QMHRCVPM for format RCVM0300
-Dcl-DS RCVM0300  QUALIFIED BASED(DUMMYPTR);
+Dcl-DS RCVM0300  QUALIFIED Template;
   ByteReturned   Int(10);
   ByteAvail      Int(10);
   MsgSeverity    Int(10);
@@ -81,7 +81,7 @@ END-PR;
 //                                                                       **
 //  Returns:   La clé du message généré                                  **
 //*************************************************************************
-DCL-PR msg_send char(4) ExtProc('MSG_SEND');
+DCL-PR msg_send char(4);
   MsgId     char(7) const;
   MsgDataIn varchar(32767) const options(*Omit:*NoPass);
   MsgType   char(10) const options(*NoPass);

@@ -3,7 +3,7 @@
 ctl-opt nomain;
 
 /copy 'APIERROR'
-/COPY 'MESSAGE_H'
+/COPY 'message_h'
 
 //***************************************************************************
 //**                                                                       **

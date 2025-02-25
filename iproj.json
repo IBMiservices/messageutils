@@ -4,8 +4,8 @@
   "license": "",
   "repository": "https://github.com/IBMiservices/messageutils.git",
   "includePath": [
-    "sourcesref",
-    "dependencies/APIIBMi/Sources"
+    "dep/APIIBMi/Sources",
+    "MessagesCore/sourcesref"
   ],
   "objlib": "*CURLIB",
   "curlib": "&CURLIB",
